@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "GoogleFirstResultBOOM"
+    }
+  },
+  "defaultProject": "GoogleFirstResultBOOM",
+  "cli": {
+    "analytics": "81e59889-996e-4e0c-95e0-0738aee78e6e"
+  }
 }

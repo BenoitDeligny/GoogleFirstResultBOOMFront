@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit()" #myForm="ngForm">
+  <label for="gender-select">Genre : </label>
+  <select id="gender-select">
+    <option></option>
+    <option value="Mr">Mr.</option>
+    <option value="Mme">Mme.</option>
+  </select>
+
+  <label for="name">Nom du patient : </label>
+  <input name="name" type="text" [(ngModel)]="name" required>
+
+  <button (click)="addNewDrug()">Ajouter un médicament</button>
+
+  <div *ngFor="let drug of drugsArray">
+    <label for="name"> Médicament prescrit : </label>
+    <input name="name" type="text" [(ngModel)]="newDrug.name" required>
+    <label for="quantity"> Nombre de fois par jour : </label>
+    <input name="quantity" type="number" required>
+    <label for="description"> Description : </label>
+    <input name="description" type="textarea" required>
+  </div>
+</form>
