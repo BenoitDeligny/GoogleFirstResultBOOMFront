@@ -1,0 +1,65 @@
+<div class="form-page">
+  <form #myForm="ngForm">
+    <div class="patient">
+      <label for="gender-select">Genre : </label>
+      <select [(ngModel)]="genre" name="genre">
+        <option></option>
+        <option value="Mr">Mr.</option>
+        <option value="Mme">Mme.</option>
+      </select>
+
+      <label for="name">Prénom du patient : </label>
+      <input name="name" type="text" onsubmit="return false" [(ngModel)]="user.firstname" required>
+      <label for="name">Nom du patient : </label>
+      <input name="name" type="text" onsubmit="return false" [(ngModel)]="user.lastname" required>
+    </div>
+    <div class="form">
+      <div class="posologie">
+        <label for="name"> Médicament prescrit : </label>
+        <input name="name" type="text" [(ngModel)]="newDrug.name" required>
+        <label for="quantity"> Nombre de fois par jour : </label>
+        <input name="quantity" class="quantity" type="number" [(ngModel)]="newDrug.takePerDay" required>
+        <label for="whenToTake"> Quand : </label>
+        <select id="whenToTake" name="whenToTake" [(ngModel)]="newDrug.moments">
+          <option></option>
+          <option value="Matin-Midi-Soir">Matin - Midi - Soir</option>
+          <option value="Matin">Matin</option>
+          <option value="Midi">Midi</option>
+          <option value="Soir">Soir</option>
+          <option value="Pendant les repas">Pendant les repas</option>
+          <option value="Espacé des repas">Espacé des repas</option>
+          <option value="Avant le coucher">Avant le coucher</option>
+          <option value="Au réveil">Au réveil</option>
+        </select>
+      </div>
+      <div class="description">
+        <textarea name="description" class="description" type="text" [(ngModel)]="newDrug.description"
+          placeholder="Descritpion..." required>
+        </textarea>
+      </div>
+
+    </div>
+    <div class="add-drug">
+      <button (click)="addNewDrug()">Ajouter le médicament</button>
+    </div>
+  </form>
+
+  <div class="prescription-display" *ngIf="drugsArray.length > 0">
+    <h2>Résumé de la prescription : </h2>
+    <h3>Prescription de {{genre}} {{user.firstname}} {{user.lastname}}</h3>
+    <div *ngFor="let drug of drugsArray" class="drug-prescription">
+      <div class="drug-name">
+        <h3>{{drug.name}} :</h3>
+        <p>{{drug.takePerDay}} par jour - </p>
+        <p>{{drug.moments}}</p>
+      </div>
+      <p>{{drug.description}}</p>
+
+    </div>
+  </div>
+
+  <div class="create-prescription" *ngIf="drugsArray.length > 0">
+    <button (click)="createPrescription()">Valider la prescription</button>
+  </div>
+
+</div>

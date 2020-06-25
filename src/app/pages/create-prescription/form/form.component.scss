@@ -1,0 +1,124 @@
+select {
+  margin-left: 10px;
+  border: 1px solid #0596de;
+  border-radius: 6px;
+  background-color: transparent;
+}
+
+label {
+  margin-left: 10px;
+  align-self: center;
+  font-size: 1.2rem;
+}
+
+input {
+  margin-left: 10px;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid #0596de;
+}
+
+input:focus {
+  outline: none;
+  background-color: white;
+}
+
+.form-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.patient {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.quantity {
+  width: 50px;
+}
+
+.posologie {
+  display: flex;
+  width: 100%;
+}
+
+.posologie label {
+  padding-left: 50px;
+}
+
+#whenToTake {
+  margin-right: 50px;
+}
+
+.description {
+  margin-top: 20px;
+}
+
+.description textarea {
+  border: 2px solid #0596de;
+  border-radius: 6px;
+  width: 500px;
+  height: 50px;
+}
+
+.add-drug {
+  text-align: center;
+  margin-top: 25px;
+}
+
+button {
+  border: none;
+  border-radius: 6px;
+  background-color: #0596de;
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+  height: 40px;
+}
+
+.prescription-display {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-top: 50px;
+  margin-left: 25px;
+}
+
+.prescription-display h2 {
+  font-size: 1.8rem;
+  color: #0596de;
+  font-weight: 600;
+}
+
+.prescription-display h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.prescription-display p {
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+.drug-name {
+  display: flex;
+  align-items: center;
+}
+
+.drug-prescription {
+  margin-bottom: 25px;
+}
+
+.create-prescription {
+  margin-top: 50px;
+}
