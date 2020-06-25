@@ -1,3 +1,8 @@
 export class Drug {
-  constructor(public name?: string, public quantity?: number, public whenToTake?: string, public description?: string) { }
+  constructor(public name?: string,
+    public takePerDay?: number,
+    public moments?: string,
+    public description?: string,
+    public startingDate?: Date,
+    public endingDate?: Date) { }
 }

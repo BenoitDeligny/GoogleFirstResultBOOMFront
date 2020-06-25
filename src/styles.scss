@@ -26,6 +26,8 @@ $GoogleFirstResultBOOM-theme: mat-light-theme($GoogleFirstResultBOOM-primary, $G
 @include angular-material-theme($GoogleFirstResultBOOM-theme);
 
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 
 html,
 body {
@@ -34,5 +36,9 @@ body {
 
 body {
   margin: 0;
+  font-family: "Roboto", arial, sans-serif;
+}
+
+h1 {
   font-family: "Montserrat", arial, sans-serif;
 }
