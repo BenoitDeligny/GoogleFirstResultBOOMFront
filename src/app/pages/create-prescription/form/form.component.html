@@ -22,19 +22,14 @@
         <label for="quantity"> Nombre de fois par jour : </label>
         <input name="quantity" class="quantity" type="number" [(ngModel)]="newDrug.takePerDay" required>
         <label for="whenToTake"> Quand : </label>
-        <select id="whenToTake" name="whenToTake" [(ngModel)]="newDrug.moments">
-          <option></option>
-          <option value="Matin-Midi-Soir">Matin - Midi - Soir</option>
-          <option value="Matin">Matin</option>
-          <option value="Midi">Midi</option>
-          <option value="Soir">Soir</option>
-          <option value="Pendant les repas">Pendant les repas</option>
-          <option value="Espacé des repas">Espacé des repas</option>
-          <option value="Avant le coucher">Avant le coucher</option>
-          <option value="Au réveil">Au réveil</option>
-        </select>
+        <mat-form-field>
+          <mat-select [(ngModel)]="newDrug.moments" name="posologie" multiple>
+            <mat-option *ngFor="let moment of momentsList" [value]="moment">{{moment}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
-      <div class="description">
+      <div class=" description">
         <textarea name="description" class="description" type="text" [(ngModel)]="newDrug.description"
           placeholder="Descritpion..." required>
         </textarea>
@@ -53,7 +48,7 @@
       <div class="drug-name">
         <h3>{{drug.name}} :</h3>
         <p>{{drug.takePerDay}} par jour - </p>
-        <p>{{drug.moments}}</p>
+        <p *ngFor="let moment of drug.moments">{{moment}}</p>
       </div>
       <p>{{drug.description}}</p>
 
@@ -69,6 +64,6 @@
 <div *ngIf="submitted" class="overlay">
   <div class="succesful">
     <h1>L'ordonnance a bien été envoyé !</h1>
-    <button>Retour à l'acceuil</button>
+    <button (click)="initialize()">Retour à l'acceuil</button>
   </div>
 </div>

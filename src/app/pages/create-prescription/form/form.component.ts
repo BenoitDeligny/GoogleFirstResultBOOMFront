@@ -4,6 +4,7 @@ import { User } from 'src/app/shared/classes/user';
 import { Prescription } from 'src/app/shared/classes/prescription';
 import { PatientService } from 'src/app/shared/services/patient.service';
 import { PrescriptionService } from 'src/app/shared/services/prescription.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -11,6 +12,8 @@ import { PrescriptionService } from 'src/app/shared/services/prescription.servic
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+
+  constructor(public patientService: PatientService, public prescriptionService: PrescriptionService) { }
 
   drugsArray: Drug[] = [];
 
@@ -24,15 +27,20 @@ export class FormComponent implements OnInit {
 
   submitted = false;
 
-  constructor(public patientService: PatientService, public prescriptionService: PrescriptionService) { }
+  momentTemporary: string[] = [];
+
+  momentsList: string[] = ['Matin', 'Midi', 'Soir', 'Au réveil', 'Avant de se coucher'];
 
   ngOnInit(): void {
-
   }
 
   addNewDrug() {
     this.drugsArray.push(this.newDrug);
     this.newDrug = new Drug();
+  }
+
+  addMoment(value) {
+    this.newDrug.moments.push(value);
   }
 
   createPrescription() {
@@ -42,7 +50,13 @@ export class FormComponent implements OnInit {
       const prescription = new Prescription('Dr.Wild', date, this.realUser, this.drugsArray);
       this.prescriptionService.savePrescription(prescription).subscribe();
       this.submitted = true;
+      console.log(prescription);
     });
+  }
+
+  initialize() {
+    this.submitted = false;
+    this.drugsArray = [];
 
   }
 

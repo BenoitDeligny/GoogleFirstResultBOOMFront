@@ -48,7 +48,12 @@ input:focus {
 
 .posologie {
   display: flex;
+  justify-content: center;
   width: 100%;
+}
+
+.posologie input {
+  margin-top: 5px;
 }
 
 .posologie label {
@@ -146,4 +151,17 @@ button {
   color: white;
   font-size: 2rem;
   margin-bottom: 50px;
+}
+
+::ng-deep .mat-form-field {
+
+  margin-left: 15px;
+
+  .mat-form-field-label {
+    color: #0596de;
+  }
+
+  .mat-form-field-underline {
+    background-color: #0596de;
+  }
 }
