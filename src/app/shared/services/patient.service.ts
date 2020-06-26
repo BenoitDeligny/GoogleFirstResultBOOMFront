@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PatientService {
 
-  URL = 'http://192.168.1.77:8080/users';
+  URL = 'https://bordeaux-gfr-hack.javarover.wilders.dev/users';
 
   constructor(private http: HttpClient) { }
 

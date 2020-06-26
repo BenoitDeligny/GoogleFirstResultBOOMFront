@@ -7,7 +7,7 @@ import { Prescription } from '../classes/prescription';
 })
 export class PrescriptionService {
 
-  URL = 'http://192.168.1.77:8080/prescriptions';
+  URL = 'https://bordeaux-gfr-hack.javarover.wilders.dev/prescriptions';
 
   constructor(private http: HttpClient) { }
 

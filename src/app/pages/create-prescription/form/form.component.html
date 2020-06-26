@@ -13,6 +13,8 @@
       <label for="name">Nom du patient : </label>
       <input name="name" type="text" onsubmit="return false" [(ngModel)]="user.lastname" required>
     </div>
+  </form>
+  <form #myForm="ngForm">
     <div class="form">
       <div class="posologie">
         <label for="name"> Médicament prescrit : </label>
@@ -40,7 +42,7 @@
 
     </div>
     <div class="add-drug">
-      <button (click)="addNewDrug()">Ajouter le médicament</button>
+      <button mat-raised-button (click)="addNewDrug()">Ajouter le médicament</button>
     </div>
   </form>
 
@@ -59,7 +61,14 @@
   </div>
 
   <div class="create-prescription" *ngIf="drugsArray.length > 0">
-    <button (click)="createPrescription()">Valider la prescription</button>
+    <button mat-raised-button (click)="createPrescription()">Valider la prescription</button>
   </div>
 
+</div>
+
+<div *ngIf="submitted" class="overlay">
+  <div class="succesful">
+    <h1>L'ordonnance a bien été envoyé !</h1>
+    <button>Retour à l'acceuil</button>
+  </div>
 </div>
