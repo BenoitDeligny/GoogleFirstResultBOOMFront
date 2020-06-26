@@ -22,6 +22,8 @@ export class FormComponent implements OnInit {
 
   realUser: User;
 
+  submitted = false;
+
   constructor(public patientService: PatientService, public prescriptionService: PrescriptionService) { }
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class FormComponent implements OnInit {
       const date = new Date();
       const prescription = new Prescription('Dr.Wild', date, this.realUser, this.drugsArray);
       this.prescriptionService.savePrescription(prescription).subscribe();
-      console.log(prescription);
+      this.submitted = true;
     });
 
   }
